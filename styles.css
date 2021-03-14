@@ -12,7 +12,6 @@
   justify-content: space-around;
   align-items: center;
   background-color: #45110f;
-  border-bottom: 2px solid #f1f0f5;
   color: rgb(5, 5, 5);
 }
 
@@ -28,7 +27,6 @@
 }
 
 .navLinks li:hover {
-  cursor: pointer;
   transform: scale(1.1);
 }
 
@@ -36,8 +34,14 @@
   color: #f1f0f5;
   text-decoration: none;
   letter-spacing: 3px;
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
+  outline: none;
+}
+
+.navLinks button {
+  background-color: #45100f;
+  border: none;
 }
 
 .burger div {
@@ -61,6 +65,10 @@
   text-decoration: underline;
 }
 
+.about {
+  text-decoration: underline;
+}
+
 /* navbar responsive */
 @media screen and (max-width: 910px) {
   body {
@@ -75,24 +83,30 @@
     background-color: #45100f;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     width: 45%;
     transform: translateX(100%);
     transition: transform 0.5s ease-in;
+    z-index: 4;
   }
 
   .navLinks li {
     opacity: 0;
+    display: flex;
   }
 
   .burger {
     display: block;
   }
+
+  .navLinks a:hover {
+    transform: scale(1.1);
+  }
 }
 
 .nav-active {
-  transform: translateX(0%);
-  transform: translateY(8%);
+  transform: translate(0%, 15%);
 }
 
 @keyframes navLinkFade {
@@ -123,7 +137,58 @@
 }
 
 .logo img:hover {
-  transform: scale(1.01);
+  transform: scale(1.1);
+}
+
+.dropDown-list {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background-color: #45100f;
+  position: absolute;
+  margin-top: 10px;
+  width: 200px;
+  height: 200px;
+  border-radius: 0.5rem;
+  transform: translate(-66px, -10px);
+  transition: all 0.5s ease-in;
+  z-index: 5;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.dropDown-list li {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropDown-list li:hover {
+  background-color: #342c32;
+  border-radius: 0.5rem;
+  transform: scale(1);
+}
+
+.dropDown-list a {
+  font-size: 12px;
+}
+
+.dropDown-list a:hover {
+  transform: scale(1.1);
+}
+
+.dropDown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropDown li:hover + .dropDown-list {
+  display: flex;
+}
+
+.dropDown-list:hover {
+  display: flex;
 }
 
 /* home page */
@@ -142,7 +207,7 @@
 }
 
 .welcome {
-  color: #385e1b;
+  color: #dddbdb;
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
@@ -169,7 +234,8 @@
   font-size: 1.5rem;
 }
 
- button {
+.welcome button,
+.signUpForm button {
   display: inline-block;
   color: rgb(241, 240, 245);
   background-color: #43100f;
@@ -184,12 +250,13 @@
   border-radius: 4px;
 }
 
- button:hover {
+.welcome button:hover,
+.signUpForm button:hover {
   cursor: pointer;
   border: 2px solid #f1f0f5;
 }
 
- button:active {
+.welcome button:active {
   transform: scale(0.95);
 }
 
@@ -211,9 +278,9 @@
 
 /* join page */
 .join-background {
-  background-image: url("https://i.imgur.com/nIfyMri.jpg");
+  background-image: url("https://i.redd.it/zdcg8c7463y51.jpg");
   background-attachment: fixed;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -225,23 +292,24 @@
 }
 
 .form-container {
-  color: #f1f0f5;
+  color: #dddbdb;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   text-align: center;
-  background-color: #45100f;
-  height: 80vh;
-  width: 100vw;
+  background-color: #342c32e6;
+  height: 90vh;
+  width: 90vw;
+  border-radius: 2rem;
   padding: 2rem;
   letter-spacing: 3px;
   font-size: 14px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .form-container h1 {
   font-size: 3rem;
-  columns: transparent;
 }
 
 .form-container h5 {
@@ -256,14 +324,13 @@
 .form-body {
   color: #f1f0f5;
   display: flex;
-  flex-flow: row wrap;
   align-items: center;
-  justify-content: space-between;
-  text-align: center;
-  background-color: #342c32;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #645856;
   height: 40%;
-  width: 90vw;
-  padding: 1rem;
+  width: 80vw;
+  padding: 1rem 1rem;
   margin: 0.5rem;
   letter-spacing: 3px;
   font-size: 14px;
@@ -276,24 +343,25 @@
   align-self: flex-start;
 }
 
-.signUpForm{
+.signUpForm {
   display: flex;
-  flex-flow: row wrap;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-around;
   justify-content: space-around;
   height: 100%;
-  width:100%;
+  width: 100%;
 }
 
-.form-select{
+.address {
   display: flex;
-  flex-direction: column; 
-  align-self: flex-start;
-  border: 1px solid #385e1b;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: space-around;
 }
 
 .form-input {
-  background-color: #342c32;
+  background-color: #645856;
   height: 50px;
   width: 20%;
   position: relative;
@@ -303,7 +371,7 @@
 .form-input input {
   text-align: left;
   color: #f1f0f5;
-  background-color: #342c32;
+  background-color: #645856;
   width: 100%;
   height: 100%;
   padding-top: 20px;
@@ -319,7 +387,7 @@
   height: 100%;
   width: 100%;
   pointer-events: none;
-  border-bottom: 1px solid #f1f0f5;
+  border-bottom: 1px solid #342c32;
 }
 
 .form-input label::after {
@@ -354,25 +422,113 @@
   transform: translateX(0%);
 }
 
-.form-body button{
+.form-body button {
   justify-self: flex-end;
   align-self: flex-end;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* join page responsive */
-@media screen and (max-width: 910px){
+@media screen and (max-width: 910px) {
   .form-container h1 {
-    font-size: 3rem;
-    columns: transparent;
+    font-size: 2rem;
   }
-  
+
   .form-container h5 {
     font-size: 0.95rem;
     align-self: flex-start;
   }
-  
+
   .form-container p {
-    font-size: 1.5rem;
+    font-size: 0.85rem;
   }
 }
+
+/* meet the board */
+
+.meet-background {
+  background-image: url("https://cdn.shopify.com/s/files/1/0084/7642/files/climb_blog_3_1024x1024.jpg?v=1487908651");
+  background-attachment: fixed;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.directors-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(241, 240, 245, 0.8);
+  height: fit-content;
+  width: 80vw;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  border-radius: 2rem;
+  padding: 2rem;
+}
+
+
+.card {
+  color:#050505;
+  background-color: #dddbdb;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  padding-bottom: 8px;
+}
+
+.card img{
+  height: 20rem;
+  width: 20rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom: 2px solid #342c32;
+  position: relative;
+}
+
+.column {
+  float: left;
+  height: fit-content;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.container p{
+  padding: 2%;
+}
+
+.container h3{
+  border-bottom: 1px solid #342c32;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+/* Some left and right padding inside the container */
+.container {
+  padding: 0 16px;
+}
+
+/* Clear floats */
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: #342c32;
+}
+
