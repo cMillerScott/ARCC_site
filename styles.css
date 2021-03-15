@@ -120,6 +120,10 @@
   }
 }
 
+/* add navbar responsive for mobile */
+@media screen and (max-width: 650px) {
+}
+
 .toggle .line1 {
   transform: rotate(-45deg) translate(-5px, 6px);
 }
@@ -219,19 +223,25 @@
   width: 75vw;
   border-radius: 2rem;
   padding: 2rem;
+  color: #dddbdb;
 }
 
 .welcome h1 {
   font-size: 3rem;
+  text-shadow: -2px 0 #050505, 0 2px #050505, 2px 0 #050505, 0 -2px #050505;
 }
 
 .welcome h3 {
   font-size: 2rem;
   text-decoration: underline;
+  color: #45100f;
+  text-shadow: -0.75px 0 #dddbdb, 0 0.75px #dddbdb, 0.75px 0 #dddbdb,
+    0 -0.75px #dddbdb;
 }
 
 .welcome p {
   font-size: 1.5rem;
+  text-shadow: -2px 0 #050505, 0 2px #050505, 2px 0 #050505, 0 -2px #050505;
 }
 
 .welcome button,
@@ -253,7 +263,7 @@
 .welcome button:hover,
 .signUpForm button:hover {
   cursor: pointer;
-  border: 2px solid #f1f0f5;
+  border: .5px solid #f1f0f5;
 }
 
 .welcome button:active {
@@ -299,10 +309,11 @@
   justify-content: space-around;
   text-align: center;
   background-color: #342c32e6;
-  height: 90vh;
+  height: 95vh;
   width: 90vw;
   border-radius: 2rem;
-  padding: 2rem;
+  padding: 2%;
+  
   letter-spacing: 3px;
   font-size: 14px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -310,15 +321,21 @@
 
 .form-container h1 {
   font-size: 3rem;
+  padding: .5rem;
+  text-shadow: -2px 0 #342c32, 0 2px #342c32, 2px 0 #342c32, 0 -2px #342c32;
 }
 
 .form-container h5 {
   font-size: 0.95rem;
   align-self: flex-start;
+  padding: .5rem;
+  text-shadow: -2px 0 #342c32, 0 2px #342c32, 2px 0 #342c32, 0 -2px #342c32;
 }
 
 .form-container p {
   font-size: 1.5rem;
+  padding: .5rem;
+  text-shadow: -2px 0 #342c32, 0 2px #342c32, 2px 0 #342c32, 0 -2px #342c32;
 }
 
 .form-body {
@@ -328,36 +345,44 @@
   flex-direction: column;
   justify-content: space-evenly;
   background-color: #645856;
-  height: 40%;
+  height: 50vh;
   width: 80vw;
-  padding: 1rem 1rem;
+  padding: 2rem;
   margin: 0.5rem;
   letter-spacing: 3px;
-  font-size: 14px;
   border-radius: 1rem;
+  border: 1px solid #f1f0f5;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .form-body h2 {
   font-size: 1rem;
   align-self: flex-start;
+  text-shadow: -2px 0 #645856, 0 2px #645856, 2px 0 #645856, 0 -2px #645856;
 }
 
 .signUpForm {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  align-content: space-around;
-  justify-content: space-around;
-  height: 100%;
+  align-content: center;
+  justify-content: space-evenly;
   width: 100%;
 }
 
 .address {
+  padding: 2%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  align-content: space-around;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.selects{
+  padding: 2%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .form-input {
@@ -427,7 +452,67 @@
   align-self: flex-end;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+ /* Reset Select */
+.custom-select select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0;
+  border-bottom: 1px solid #342c32;
+  font-size: 14px;
+  background: #645856;
+  background-image: none;
+}
+/* Remove IE arrow */
+.custom-select select::-ms-expand {
+  display: none;
+}
+/* Custom Select */
+.custom-select {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: #645856;
+  overflow: hidden;
+  border-radius: .25em;
+  transform: translateY(8px);
+}
 
+.custom-select select {
+  flex: 1;
+  padding: 0 .5em;
+  color: #f1f0f5;
+  cursor: pointer;
+}
+
+.custom-select select:focus{
+  border-bottom: 3px solid #45100f;
+  color: #45100f;
+}
+/* Arrow */
+.custom-select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #342c32;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+
+/* Transition */
+.custom-select:hover::after {
+  color: #45100f;
+}
 /* join page responsive */
 @media screen and (max-width: 910px) {
   .form-container h1 {
@@ -464,8 +549,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  background-color: rgba(241, 240, 245, 0.8);
+  justify-content: center;
+  background-color: rgba(221, 219, 219, 0.75);
   height: fit-content;
   width: 80vw;
   margin-top: 10%;
@@ -474,16 +559,25 @@
   padding: 2rem;
 }
 
-
-.card {
-  color:#050505;
-  background-color: #dddbdb;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 1rem;
-  padding-bottom: 8px;
+.directors-container h1 {
+  color: #050505;
+  font-size: 3rem;
+  text-shadow: -0.75px 0 #dddbdb, 0 0.75px #dddbdb, 0.75px 0 #dddbdb,
+    0 -0.75px #dddbdb;
+  margin-bottom: 2rem;
 }
 
-.card img{
+/* profile cards */
+.card {
+  color: #050505;
+  background-color: #dddbdb;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1rem;
+  padding-bottom: 8px;
+  width: 100%;
+}
+
+.card img {
   height: 20rem;
   width: 20rem;
   border-top-left-radius: 1rem;
@@ -500,15 +594,15 @@
   padding: 0 8px;
 }
 
-.container p{
+.container p {
   padding: 2%;
 }
 
-.container h3{
+.container h3 {
   border-bottom: 1px solid #342c32;
 }
 
-/* Display the columns below each other instead of side by side on small screens */
+/* meet the board responsive */
 @media screen and (max-width: 650px) {
   .column {
     width: 100%;
@@ -516,19 +610,10 @@
   }
 }
 
-/* Some left and right padding inside the container */
 .container {
   padding: 0 16px;
-}
-
-/* Clear floats */
-.container::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
 }
 
 .title {
   color: #342c32;
 }
-
