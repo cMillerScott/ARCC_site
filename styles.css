@@ -85,15 +85,17 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 45%;
+    width: 100%;
     transform: translateX(100%);
     transition: transform 0.5s ease-in;
     z-index: 4;
+    /* border: 4px solid #050505 */
   }
 
   .navLinks li {
     opacity: 0;
     display: flex;
+    /* border: 4px solid #050505 */
   }
 
   .burger {
@@ -219,8 +221,10 @@
   justify-content: space-around;
   text-align: center;
   background-color: rgba(5, 5, 5, 0.75);
-  height: 75vh;
-  width: 75vw;
+  height: 95vh;
+  width: 90vw;
+  margin-top: 10%;
+  margin-bottom: 10%;
   border-radius: 2rem;
   padding: 2rem;
   color: #dddbdb;
@@ -313,7 +317,6 @@
   width: 90vw;
   border-radius: 2rem;
   padding: 2%;
-  
   letter-spacing: 3px;
   font-size: 14px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -494,6 +497,8 @@
   border-bottom: 3px solid #45100f;
   color: #45100f;
 }
+
+
 /* Arrow */
 .custom-select::after {
   content: '\25BC';
@@ -549,10 +554,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   background-color: rgba(221, 219, 219, 0.75);
   height: fit-content;
-  width: 80vw;
+  width: 90vw;
   margin-top: 10%;
   margin-bottom: 10%;
   border-radius: 2rem;
@@ -564,7 +568,6 @@
   font-size: 3rem;
   text-shadow: -0.75px 0 #dddbdb, 0 0.75px #dddbdb, 0.75px 0 #dddbdb,
     0 -0.75px #dddbdb;
-  margin-bottom: 2rem;
 }
 
 /* profile cards */
@@ -574,7 +577,6 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 1rem;
   padding-bottom: 8px;
-  width: 100%;
 }
 
 .card img {
@@ -587,11 +589,12 @@
 }
 
 .column {
+  display: inline;
   float: left;
   height: fit-content;
-  width: 33.3%;
+  margin: 8%;
+  width: 33%;
   margin-bottom: 16px;
-  padding: 0 8px;
 }
 
 .container p {
@@ -604,10 +607,16 @@
 
 /* meet the board responsive */
 @media screen and (max-width: 650px) {
+  .directors-container h1{
+    text-align: center;
+  }
+
   .column {
     width: 100%;
-    display: block;
+    margin: 0;
+    margin-bottom: 40px;
   }
+
 }
 
 .container {
